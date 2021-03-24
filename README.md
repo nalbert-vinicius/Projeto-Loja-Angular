@@ -1,4 +1,5 @@
-# App2
+# Pojeto Loja com Angular
+ 1º Commit = Aprendendo como funciona e como utilizar services
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
