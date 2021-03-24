@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "xyz",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -31,9 +31,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "../app2/node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "../app2/node_modules/tether/dist/css/tether.min.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../app2/node_modules/tether/dist/js/tether.min.js",
+              "../app2/node_modules/jquery/dist/jquery.min.js",
+              "../app2/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              
+            ]
           },
           "configurations": {
             "production": {
