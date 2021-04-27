@@ -1,3 +1,4 @@
+import { TranslationWidth } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.ofertasService.getOfertas().then((data: Oferta[])=>{
       this.ofertas = data
     }).catch((param: any)=>{
-      console.log("A",param)
+      throw("Erro");
     })
   }
 
