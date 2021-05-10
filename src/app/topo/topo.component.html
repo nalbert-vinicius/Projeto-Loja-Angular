@@ -1,10 +1,23 @@
 <div class="fixed-top">
   <nav class="navbar navbar-light bg-faded">
     <div class="container">
-      <a routerLink="" class="navbar-brand">
-        <img src="/assets/logo.png" />
-      </a>
-      <a a href="#"><img src="/assets/carrinho.png" /></a>
+      <div class="row">
+        <div class="col-md-4">
+          <a routerLink="" class="navbar-brand">
+            <img src="/assets/logo.png" />
+          </a>
+        </div>
+        <div class="col-md-6"> 
+          <!-- Referenciando a variavel de pesquisa #Pesquisa-->
+          <input type="text" #Pesquisa (keyup)="pesquisar(Pesquisa.value)" class="form-control" placeholder="Pesquisar ofertas....">
+          <ul class="list-group" style="position: absolute">
+            <li *ngFor="let element of pesquisa" class="list-group-item">{{ element.titulo }}</li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <a a href="#"><img src="/assets/carrinho.png" /></a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -23,5 +36,5 @@
 </div>
 
 <div class="banner">
-  <img src="/assets/banners/img_1.jpg" />
+  <img src="/assets/banners/img_3.jpg" />
 </div>

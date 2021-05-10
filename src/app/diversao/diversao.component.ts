@@ -5,7 +5,7 @@ import { Oferta } from '../shared/oferta.model';
 @Component({
   selector: 'app-diversao',
   templateUrl: './diversao.component.html',
-  styleUrls: ['./diversao.component.scss'],
+  styleUrls: ['./diversao.component.css'],
   providers: [ OfertasService ]
 })
 export class DiversaoComponent implements OnInit {

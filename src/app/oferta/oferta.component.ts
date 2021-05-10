@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
+import { Observable, interval, Observer, Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-oferta',
@@ -10,7 +12,7 @@ import { Oferta } from '../shared/oferta.model';
   providers: [OfertasService]
 })
 export class OfertaComponent implements OnInit {
-  //ActivatedRoute usado para conseguir utilizar o snapshot
+  //ActivatedRoute usado para conseguir utilizar o snapshot e subscribe
   private route: ActivatedRoute;
   public oferta: any;
 
@@ -23,7 +25,6 @@ export class OfertaComponent implements OnInit {
     //snapshot permite tirar uma copia do parametro vindo da URL
     this.ofertaService.getOfertasPorId(this.route.snapshot.params['id']).then((data: Oferta[]) => {
       this.oferta = data.shift();
-      console.log(this.oferta)
     });
   }
 }
