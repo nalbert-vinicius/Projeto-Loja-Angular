@@ -21,11 +21,15 @@ export class OfertaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //usando snapshot para recuperar o ID
-    //snapshot permite tirar uma copia do parametro vindo da URL
-    this.ofertaService.getOfertasPorId(this.route.snapshot.params['id']).then((data: Oferta[]) => {
-      this.oferta = data.shift();
-    });
+    //subscribre no parametro vindo da URL
+    //assim sempre que for atualizado ele realiza uma nova requisição para recuperar dados
+    this.route.params.subscribe((parametros: any) => {
+      //usando snapshot para recuperar o ID
+      //snapshot permite tirar uma copia do parametro vindo da URL
+      this.ofertaService.getOfertasPorId(parametros.id).then((data: Oferta[]) => {
+        this.oferta = data.shift();
+      });
+    })
   }
 }
 

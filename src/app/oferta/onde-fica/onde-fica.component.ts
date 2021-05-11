@@ -17,9 +17,12 @@ export class OndeFicaComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.ofertaService.getOndeFicaPorId(this.route.parent?.snapshot.params['id'])
-    .then((data: any) => {
-      this.dado = data;
+    this.route.parent?.params.subscribe((parametros: any) => {
+      this.ofertaService.getOndeFicaPorId(parametros.id)
+        .then((data: any) => {
+        this.dado = data;
+      })
     })
+    
   }
 }

@@ -10,8 +10,9 @@
         <div class="col-md-6"> 
           <!-- Referenciando a variavel de pesquisa #Pesquisa-->
           <input type="text" #Pesquisa (keyup)="pesquisar(Pesquisa.value)" class="form-control" placeholder="Pesquisar ofertas....">
-          <ul class="list-group" style="position: absolute">
-            <li *ngFor="let element of pesquisa" class="list-group-item">{{ element.titulo }}</li>
+          <ul class="list-group" style="position: absolute; z-index: 999;"> <!--Para passar parametro para o Pipe basta usar nomePipe:parametro -->
+                       <!--Async realiza o subscribre no observable ofertas-->
+            <li  *ngFor="let element of ofertas | async" class="list-group-item"><a [routerLink]="['/oferta', element.id]" (click)="clearPesquisa()">{{ element.titulo | descricaoReduzida }}</a></li>
           </ul>
         </div>
         <div class="col-md-2">

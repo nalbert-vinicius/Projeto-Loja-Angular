@@ -13,8 +13,8 @@ import { switchMap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/
 })
 export class TopoComponent implements OnInit {
 
-  public pesquisa?: Oferta[];
   public ofertas?: Observable<Oferta[]>;
+  //subject reebe parametros e pode retornar varios observables
   private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(
@@ -30,21 +30,25 @@ export class TopoComponent implements OnInit {
     this.ofertas = this.subjectPesquisa.pipe(distinctUntilChanged()).pipe(debounceTime(1000)).pipe(switchMap((termoBusca: string) => {
       if(termoBusca.trim() === ''){
         //retorno de um observable do tipo oferta[]
+        //of permite selecionar um tipo para o retorno
         return of<Oferta[]>([]);
       }
       return this.ofertasService.pesquisaOferta(termoBusca);
     }))
     catchError((err: any)=>{
+      //retorno de um observable do tipo oferta[]
       return of<Oferta[]>([]);
     })
-
-    //subscribe no observable retornado
-    this.ofertas.subscribe((ofertas: Oferta[]) => this.pesquisa = ofertas)
   }
 
   pesquisar(busca: string): void{
     // permite que subject realize a requisição
     this.subjectPesquisa.next(busca);
-   
   }
+
+  clearPesquisa(){
+    //limpa pesquisa ao clicar
+    this.subjectPesquisa.next('');
+  }
+
 }
