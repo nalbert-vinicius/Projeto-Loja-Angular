@@ -16,6 +16,6 @@ O projeto está rodando por padrão na porta 4200/
 4º npm start
 
 ## Front
-
+![Pojeto Loja com Angular](https://github.com/nalbert-vinicius/Projeto-Loja-Angular/blob/master/img/gif.gif)
 
 
