@@ -10,10 +10,10 @@ O projeto está rodando por padrão na porta 4200/
 
 ## Rodar projeto
 
-1º git clone https://github.com/nalbert-vinicius/Projeto-Loja-Angular.git
-2º npm install
-3º json-server --watch banco-de-dados.json
-4º npm start
+1º git clone https://github.com/nalbert-vinicius/Projeto-Loja-Angular.git <br>
+2º npm install <br>
+3º json-server --watch banco-de-dados.json <br>
+4º npm start 
 
 ## Front
 ![Pojeto Loja com Angular](https://github.com/nalbert-vinicius/Projeto-Loja-Angular/blob/master/img/gif.gif)
